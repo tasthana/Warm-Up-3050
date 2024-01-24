@@ -1,63 +1,63 @@
 make,model,color,msrp,mpg,horsepower
-Jeep,Cherokee,white,40000,32.1,293
+Jeep,Cherokee,white,40000,32.1,
 Jeep,Gladiator,green,50000,24.3,452
-Jeep,Wrangler,red,60000,26.1,391
+Jeep,Wrangler,red,60000,,391
 Dodge,Challenger,gray,34000,21.8,678
 Dodge,Charger,black,40000,20.1,567
 Chevrolet,Camaro,yellow,50000,25.2,455
 Chevrolet,Silverado,silver,40000,18.5,355
-Chevrolet,Malibu,white,24000,29.4,160
+Chevrolet,Malibu,white,24000,,160
 Chevrolet,Corvette,red,72000,19.6,495
 Chevrolet,Equinox,gray,45000,28.7,170
 Chevrolet,Tahoe,white,52000,18.2,355
-Chevrolet,Suburban,black,54000,16.5,420
+Chevrolet,Suburban,black,54000,16.5,
 Honda,Accord,black,32000,30.1,192
 Honda,Odyssey,blue,31000,28.3,280
-Honda,CR-V,white,34000,29.8,190
+Honda,CR-V,white,34000,,190
 Honda,Civic,white,32000,32.0,158
 Hyundai,Sonata,black,28000,27.5,191
-Hyundai,Elantra,white,32000,31.5,147
+Hyundai,Elantra,white,32000,31.5,
 Audi,A5,white,45000,27.4,261
 Audi,R8,red,60000,18.9,562
-Cadillac,Escalade,beige,70000,17.3,420
-BMW,5 Series,blue,50000,28.4,248
+Cadillac,Escalade,beige,70000,,420
+BMW,5 Series,blue,50000,,248
 BMW,X5,blue,56000,25.1,335
 Ford,Bronco,gray,61000,20.2,270
 Ford,Escape,white,48000,27.0,250
-Ford,Explorer,black,43000,23.7,300
+Ford,Explorer,black,43000,23.7,
 Ford,Maverick,blue,51000,33.4,191
 Ford,Mustang,blue,74000,18.8,450
 Ford,F-150,silver,40000,20.4,290
-Ford,F-250,gray,45000,15.6,385
-Kia,Sorrento,blue,25000,27.5,191
-Kia,Soul,red,22000,29.0,147
+Ford,F-250,gray,45000,,385
+Kia,Sorrento,blue,25000,27.5,
+Kia,Soul,red,22000,29.0,
 Kia,Sportage,white,20000,28.1,181
 Lamborghini,Aventador,green,2000000,11.8,730
-Lamborghini,Huracan,red,400000,15.3,602
+Lamborghini,Huracan,red,400000,,602
 Lamborghini,Urus,purple,130000,15.9,641
 Mazda,CX-5,red,35000,28.2,227
 McLaren,GT,blue,204000,18.7,612
 Nissan,Altima,black,34000,27.0,182
 Nissan,Frontier,gray,37000,22.0,310
 Nissan,GT-R,red,124000,16.8,565
-Porsche,911,silver,91000,22.5,379
+Porsche,911,silver,91000,22.5,
 Porsche,Boxster,silver,95000,25.2,300
 Porsche,Cayenne,red,87000,20.9,335
 Porsche,Cayman,blue,102000,21.7,300
 Porsche,Spyder,yellow,134000,17.8,414
-Rolls-Royce,Phantom,blue,154000,14.9,563
+Rolls-Royce,Phantom,blue,154000,,563
 Subaru,Outback,blue,54000,26.8,260
-Subaru,Ascent,white,42000,22.7,260
+Subaru,Ascent,white,42000,,260
 Subaru,Forester,green,40000,26.9,182
-Tesla,Model S,white,61000,26.0,670
+Tesla,Model S,white,61000,26.0,
 Tesla,Model 3,blue,56000,25.9,346
 Tesla,Model X,gray,42000,22.4,670
-Tesla,Model Y,silver,38000,23.7,384
+Tesla,Model Y,silver,38000,23.7,
 Toyota,Camry,white,34000,28.4,203
-Toyota,Corolla,silver,32000,31.5,169
+Toyota,Corolla,silver,32000,,169
 Toyota,RAV4,black,30000,30.2,203
 Toyota,Prius,blue,28000,50.1,121
 Toyota,Supra,red,63000,22.8,382
 Volkswagen,Golf,blue,37000,29.8,228
-Volkswagen,Jetta,white,35000,30.4,147
+Volkswagen,Jetta,white,35000,30.4,
 Volkswagen,Tiguan,green,34000,27.7,184

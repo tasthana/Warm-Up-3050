@@ -1,0 +1,498 @@
+[
+    {
+      "make": "Jeep",
+      "model": "Cherokee",
+      "color": "white",
+      "msrp": 40000,
+      "mpg": 32.1,
+      "horsepower": null
+    },
+    {
+      "make": "Jeep",
+      "model": "Gladiator",
+      "color": "green",
+      "msrp": 50000,
+      "mpg": 24.3,
+      "horsepower": 452
+    },
+    {
+      "make": "Jeep",
+      "model": "Wrangler",
+      "color": "red",
+      "msrp": 60000,
+      "mpg": null,
+      "horsepower": 391
+    },
+    {
+      "make": "Dodge",
+      "model": "Challenger",
+      "color": "gray",
+      "msrp": 34000,
+      "mpg": 21.8,
+      "horsepower": 678
+    },
+    {
+      "make": "Dodge",
+      "model": "Charger",
+      "color": "black",
+      "msrp": 40000,
+      "mpg": 20.1,
+      "horsepower": 567
+    },
+    {
+      "make": "Chevrolet",
+      "model": "Camaro",
+      "color": "yellow",
+      "msrp": 50000,
+      "mpg": 25.2,
+      "horsepower": 455
+    },
+    {
+      "make": "Chevrolet",
+      "model": "Silverado",
+      "color": "silver",
+      "msrp": 40000,
+      "mpg": 18.5,
+      "horsepower": 355
+    },
+    {
+      "make": "Chevrolet",
+      "model": "Malibu",
+      "color": "white",
+      "msrp": 24000,
+      "mpg": null,
+      "horsepower": 160
+    },
+    {
+      "make": "Chevrolet",
+      "model": "Corvette",
+      "color": "red",
+      "msrp": 72000,
+      "mpg": 19.6,
+      "horsepower": 495
+    },
+    {
+      "make": "Chevrolet",
+      "model": "Equinox",
+      "color": "gray",
+      "msrp": 45000,
+      "mpg": 28.7,
+      "horsepower": 170
+    },
+    {
+      "make": "Chevrolet",
+      "model": "Tahoe",
+      "color": "white",
+      "msrp": 52000,
+      "mpg": 18.2,
+      "horsepower": 355
+    },
+    {
+      "make": "Chevrolet",
+      "model": "Suburban",
+      "color": "black",
+      "msrp": 54000,
+      "mpg": 16.5,
+      "horsepower": null
+    },
+    {
+      "make": "Honda",
+      "model": "Accord",
+      "color": "black",
+      "msrp": 32000,
+      "mpg": 30.1,
+      "horsepower": 192
+    },
+    {
+      "make": "Honda",
+      "model": "Odyssey",
+      "color": "blue",
+      "msrp": 31000,
+      "mpg": 28.3,
+      "horsepower": 280
+    },
+    {
+      "make": "Honda",
+      "model": "CR-V",
+      "color": "white",
+      "msrp": 34000,
+      "mpg": null,
+      "horsepower": 190
+    },
+    {
+      "make": "Honda",
+      "model": "Civic",
+      "color": "white",
+      "msrp": 32000,
+      "mpg": 32,
+      "horsepower": 158
+    },
+    {
+      "make": "Hyundai",
+      "model": "Sonata",
+      "color": "black",
+      "msrp": 28000,
+      "mpg": 27.5,
+      "horsepower": 191
+    },
+    {
+      "make": "Hyundai",
+      "model": "Elantra",
+      "color": "white",
+      "msrp": 32000,
+      "mpg": 31.5,
+      "horsepower": null
+    },
+    {
+      "make": "Audi",
+      "model": "A5",
+      "color": "white",
+      "msrp": 45000,
+      "mpg": 27.4,
+      "horsepower": 261
+    },
+    {
+      "make": "Audi",
+      "model": "R8",
+      "color": "red",
+      "msrp": 60000,
+      "mpg": 18.9,
+      "horsepower": 562
+    },
+    {
+      "make": "Cadillac",
+      "model": "Escalade",
+      "color": "beige",
+      "msrp": 70000,
+      "mpg": null,
+      "horsepower": 420
+    },
+    {
+      "make": "BMW",
+      "model": "5 Series",
+      "color": "blue",
+      "msrp": 50000,
+      "mpg": null,
+      "horsepower": 248
+    },
+    {
+      "make": "BMW",
+      "model": "X5",
+      "color": "blue",
+      "msrp": 56000,
+      "mpg": 25.1,
+      "horsepower": 335
+    },
+    {
+      "make": "Ford",
+      "model": "Bronco",
+      "color": "gray",
+      "msrp": 61000,
+      "mpg": 20.2,
+      "horsepower": 270
+    },
+    {
+      "make": "Ford",
+      "model": "Escape",
+      "color": "white",
+      "msrp": 48000,
+      "mpg": 27,
+      "horsepower": 250
+    },
+    {
+      "make": "Ford",
+      "model": "Explorer",
+      "color": "black",
+      "msrp": 43000,
+      "mpg": 23.7,
+      "horsepower": null
+    },
+    {
+      "make": "Ford",
+      "model": "Maverick",
+      "color": "blue",
+      "msrp": 51000,
+      "mpg": 33.4,
+      "horsepower": 191
+    },
+    {
+      "make": "Ford",
+      "model": "Mustang",
+      "color": "blue",
+      "msrp": 74000,
+      "mpg": 18.8,
+      "horsepower": 450
+    },
+    {
+      "make": "Ford",
+      "model": "F-150",
+      "color": "silver",
+      "msrp": 40000,
+      "mpg": 20.4,
+      "horsepower": 290
+    },
+    {
+      "make": "Ford",
+      "model": "F-250",
+      "color": "gray",
+      "msrp": 45000,
+      "mpg": null,
+      "horsepower": 385
+    },
+    {
+      "make": "Kia",
+      "model": "Sorrento",
+      "color": "blue",
+      "msrp": 25000,
+      "mpg": 27.5,
+      "horsepower": null
+    },
+    {
+      "make": "Kia",
+      "model": "Soul",
+      "color": "red",
+      "msrp": 22000,
+      "mpg": 29,
+      "horsepower": null
+    },
+    {
+      "make": "Kia",
+      "model": "Sportage",
+      "color": "white",
+      "msrp": 20000,
+      "mpg": 28.1,
+      "horsepower": 181
+    },
+    {
+      "make": "Lamborghini",
+      "model": "Aventador",
+      "color": "green",
+      "msrp": 2000000,
+      "mpg": 11.8,
+      "horsepower": 730
+    },
+    {
+      "make": "Lamborghini",
+      "model": "Huracan",
+      "color": "red",
+      "msrp": 400000,
+      "mpg": null,
+      "horsepower": 602
+    },
+    {
+      "make": "Lamborghini",
+      "model": "Urus",
+      "color": "purple",
+      "msrp": 130000,
+      "mpg": 15.9,
+      "horsepower": 641
+    },
+    {
+      "make": "Mazda",
+      "model": "CX-5",
+      "color": "red",
+      "msrp": 35000,
+      "mpg": 28.2,
+      "horsepower": 227
+    },
+    {
+      "make": "McLaren",
+      "model": "GT",
+      "color": "blue",
+      "msrp": 204000,
+      "mpg": 18.7,
+      "horsepower": 612
+    },
+    {
+      "make": "Nissan",
+      "model": "Altima",
+      "color": "black",
+      "msrp": 34000,
+      "mpg": 27,
+      "horsepower": 182
+    },
+    {
+      "make": "Nissan",
+      "model": "Frontier",
+      "color": "gray",
+      "msrp": 37000,
+      "mpg": 22,
+      "horsepower": 310
+    },
+    {
+      "make": "Nissan",
+      "model": "GT-R",
+      "color": "red",
+      "msrp": 124000,
+      "mpg": 16.8,
+      "horsepower": 565
+    },
+    {
+      "make": "Porsche",
+      "model": "911",
+      "color": "silver",
+      "msrp": 91000,
+      "mpg": 22.5,
+      "horsepower": null
+    },
+    {
+      "make": "Porsche",
+      "model": "Boxster",
+      "color": "silver",
+      "msrp": 95000,
+      "mpg": 25.2,
+      "horsepower": 300
+    },
+    {
+      "make": "Porsche",
+      "model": "Cayenne",
+      "color": "red",
+      "msrp": 87000,
+      "mpg": 20.9,
+      "horsepower": 335
+    },
+    {
+      "make": "Porsche",
+      "model": "Cayman",
+      "color": "blue",
+      "msrp": 102000,
+      "mpg": 21.7,
+      "horsepower": 300
+    },
+    {
+      "make": "Porsche",
+      "model": "Spyder",
+      "color": "yellow",
+      "msrp": 134000,
+      "mpg": 17.8,
+      "horsepower": 414
+    },
+    {
+      "make": "Rolls-Royce",
+      "model": "Phantom",
+      "color": "blue",
+      "msrp": 154000,
+      "mpg": null,
+      "horsepower": 563
+    },
+    {
+      "make": "Subaru",
+      "model": "Outback",
+      "color": "blue",
+      "msrp": 54000,
+      "mpg": 26.8,
+      "horsepower": 260
+    },
+    {
+      "make": "Subaru",
+      "model": "Ascent",
+      "color": "white",
+      "msrp": 42000,
+      "mpg": null,
+      "horsepower": 260
+    },
+    {
+      "make": "Subaru",
+      "model": "Forester",
+      "color": "green",
+      "msrp": 40000,
+      "mpg": 26.9,
+      "horsepower": 182
+    },
+    {
+      "make": "Tesla",
+      "model": "Model S",
+      "color": "white",
+      "msrp": 61000,
+      "mpg": 26,
+      "horsepower": null
+    },
+    {
+      "make": "Tesla",
+      "model": "Model 3",
+      "color": "blue",
+      "msrp": 56000,
+      "mpg": 25.9,
+      "horsepower": 346
+    },
+    {
+      "make": "Tesla",
+      "model": "Model X",
+      "color": "gray",
+      "msrp": 42000,
+      "mpg": 22.4,
+      "horsepower": 670
+    },
+    {
+      "make": "Tesla",
+      "model": "Model Y",
+      "color": "silver",
+      "msrp": 38000,
+      "mpg": 23.7,
+      "horsepower": null
+    },
+    {
+      "make": "Toyota",
+      "model": "Camry",
+      "color": "white",
+      "msrp": 34000,
+      "mpg": 28.4,
+      "horsepower": 203
+    },
+    {
+      "make": "Toyota",
+      "model": "Corolla",
+      "color": "silver",
+      "msrp": 32000,
+      "mpg": null,
+      "horsepower": 169
+    },
+    {
+      "make": "Toyota",
+      "model": "RAV4",
+      "color": "black",
+      "msrp": 30000,
+      "mpg": 30.2,
+      "horsepower": 203
+    },
+    {
+      "make": "Toyota",
+      "model": "Prius",
+      "color": "blue",
+      "msrp": 28000,
+      "mpg": 50.1,
+      "horsepower": 121
+    },
+    {
+      "make": "Toyota",
+      "model": "Supra",
+      "color": "red",
+      "msrp": 63000,
+      "mpg": 22.8,
+      "horsepower": 382
+    },
+    {
+      "make": "Volkswagen",
+      "model": "Golf",
+      "color": "blue",
+      "msrp": 37000,
+      "mpg": 29.8,
+      "horsepower": 228
+    },
+    {
+      "make": "Volkswagen",
+      "model": "Jetta",
+      "color": "white",
+      "msrp": 35000,
+      "mpg": 30.4,
+      "horsepower": null
+    },
+    {
+      "make": "Volkswagen",
+      "model": "Tiguan",
+      "color": "green",
+      "msrp": 34000,
+      "mpg": 27.7,
+      "horsepower": 184
+    }
+   ]

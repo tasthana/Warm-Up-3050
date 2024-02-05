@@ -28,4 +28,3 @@ var serviceAccount = require("Desktop/warm-up-project-3050.json");
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount)
 });
-

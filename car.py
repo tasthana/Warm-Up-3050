@@ -10,12 +10,10 @@ class Car:
 
     @staticmethod
     def from_dict(source):
-        # TODO: Implement from_dict
        return Car(source['make'], source['model'], source['color'], source['msrp'], source['quantity'],
                    source.get('mpg', -1), source.get('horsepower', -1))
 
     def to_dict(self):
-        # TODO: Implement to_dict
       car_dict = {
             'make': self.make,
             'model': self.model,

@@ -10,25 +10,25 @@ class Car:
 
     @staticmethod
     def from_dict(source):
-        # TODO: Implement from_dict
-       return Car(source['make'], source['model'], source['color'], source['msrp'], source['quantity'],
+        # Makes a car object from a dictionary
+        return Car(source['make'], source['model'], source['color'], source['msrp'], source['quantity'],
                    source.get('mpg', -1), source.get('horsepower', -1))
 
     def to_dict(self):
-        # TODO: Implement to_dict
-      car_dict = {
+        # Makes a dictionary from a car object
+        car_dict = {
             'make': self.make,
             'model': self.model,
             'color': self.color,
             'msrp': self.msrp,
             'quantity': self.quantity
         }
-      if self.mpg != -1:
-          car_dict['mpg'] = self.mpg
-      if self.horsepower != -1:
-          car_dict['horsepower'] = self.horsepower
-      return car_dict
-       
+        if self.mpg != -1:
+            car_dict['mpg'] = self.mpg
+        if self.horsepower != -1:
+            car_dict['horsepower'] = self.horsepower
+        return car_dict
+
     def __repr__(self):
         repr = f"Car(\
                 make={self.make}, \
@@ -36,8 +36,8 @@ class Car:
                 color={self.color}, \
                 msrp={self.msrp}"
         if self.mpg != -1:
-          repr += f", mpg={self.mpg}"
+            repr += f", mpg={self.mpg}"
         if self.horsepower != -1:
-          repr += f", horsepower={self.horsepower}"
+            repr += f", horsepower={self.horsepower}"
         repr += f", quantity={self.quantity})"
         return repr

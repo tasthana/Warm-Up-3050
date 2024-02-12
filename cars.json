@@ -1,5 +1,6 @@
 [
     {
+      "uuid": 1,
       "make": "Jeep",
       "model": "Cherokee",
       "color": "white",
@@ -8,8 +9,9 @@
       "horsepower": null,
       "quantity": 2
     },
-
+    
     {
+      "uuid": 2,
       "make": "Jeep",
       "model": "Gladiator",
       "color": "green",
@@ -20,6 +22,7 @@
     },
 
     {
+      "uuid": 3,
       "make": "Jeep",
       "model": "Wrangler",
       "color": "red",
@@ -30,6 +33,7 @@
     },
 
     {
+      "uuid": 4,
       "make": "Dodge",
       "model": "Challenger",
       "color": "gray",
@@ -40,6 +44,7 @@
     },
 
     {
+      "uuid": 5,
       "make": "Dodge",
       "model": "Charger",
       "color": "black",
@@ -50,6 +55,7 @@
     },
 
     {
+      "uuid": 6,
       "make": "Chevrolet",
       "model": "Camaro",
       "color": "yellow",
@@ -60,6 +66,7 @@
     },
 
     {
+      "uuid": 7,
       "make": "Chevrolet",
       "model": "Silverado",
       "color": "silver",
@@ -70,6 +77,7 @@
     },
 
     {
+      "uuid": 8,
       "make": "Chevrolet",
       "model": "Malibu",
       "color": "white",
@@ -78,8 +86,9 @@
       "horsepower": 160,
       "quantity": 1
     },
-    
+
     {
+      "uuid": 9,
       "make": "Chevrolet",
       "model": "Corvette",
       "color": "red",
@@ -87,9 +96,10 @@
       "mpg": 19.6,
       "horsepower": 495,
       "quantity":3
-      
     },
+
     {
+      "uuid": 10,
       "make": "Chevrolet",
       "model": "Equinox",
       "color": "gray",
@@ -100,6 +110,7 @@
     },
 
     {
+      "uuid": 11,
       "make": "Chevrolet",
       "model": "Tahoe",
       "color": "white",
@@ -107,9 +118,10 @@
       "mpg": 18.2,
       "horsepower": 355,
       "quantity":2 
-      
     },
+
     {
+      "uuid": 12,
       "make": "Chevrolet",
       "model": "Suburban",
       "color": "black",
@@ -117,9 +129,10 @@
       "mpg": 16.5,
       "horsepower": null,
       "quantity":0
-      
     },
+
     {
+      "uuid": 13,
       "make": "Honda",
       "model": "Accord",
       "color": "black",
@@ -127,9 +140,10 @@
       "mpg": 30.1,
       "horsepower": 192,
       "quantity":1
-      
     },
+
     {
+      "uuid": 14,
       "make": "Honda",
       "model": "Odyssey",
       "color": "blue",
@@ -138,7 +152,9 @@
       "horsepower": 280,
       "quantity":1
     },
+
     {
+      "uuid": 15,
       "make": "Honda",
       "model": "CR-V",
       "color": "white",
@@ -146,9 +162,10 @@
       "mpg": null,
       "horsepower": 190,
       "quantity":2 
-      
     },
+
     {
+      "uuid": 16,
       "make": "Honda",
       "model": "Civic",
       "color": "white",
@@ -156,9 +173,10 @@
       "mpg": 32,
       "horsepower": 158,
       "quantity":5
-      
     },
+
     {
+      "uuid": 17,
       "make": "Hyundai",
       "model": "Sonata",
       "color": "black",
@@ -169,6 +187,7 @@
     },
 
     {
+      "uuid": 18,
       "make": "Hyundai",
       "model": "Elantra",
       "color": "white",
@@ -176,9 +195,10 @@
       "mpg": 31.5,
       "horsepower": null,
       "quantity":3
-      
     },
+
     {
+      "uuid": 19,
       "make": "Audi",
       "model": "A5",
       "color": "white",
@@ -186,9 +206,10 @@
       "mpg": 27.4,
       "horsepower": 261,
       "quantity":0
-      
     },
+
     {
+      "uuid": 20,
       "make": "Audi",
       "model": "R8",
       "color": "red",
@@ -196,9 +217,10 @@
       "mpg": 18.9,
       "horsepower": 562,
       "quantity":0
-      
     },
+
     {
+      "uuid": 21,
       "make": "Cadillac",
       "model": "Escalade",
       "color": "beige",
@@ -209,6 +231,7 @@
     },
 
     {
+      "uuid": 22,
       "make": "BMW",
       "model": "5 Series",
       "color": "blue",
@@ -216,9 +239,10 @@
       "mpg": null,
       "horsepower": 248,
       "quantity":3
-      
     },
+
     {
+      "uuid": 23,
       "make": "BMW",
       "model": "X5",
       "color": "blue",
@@ -226,9 +250,10 @@
       "mpg": 25.1,
       "horsepower": 335,
       "quantity":1
-      
     },
+
     {
+      "uuid": 24,
       "make": "Ford",
       "model": "Bronco",
       "color": "gray",
@@ -236,9 +261,10 @@
       "mpg": 20.2,
       "horsepower": 270,
       "quantity":3
-      
     },
+
     {
+      "uuid": 25,
       "make": "Ford",
       "model": "Escape",
       "color": "white",
@@ -246,9 +272,10 @@
       "mpg": 27,
       "horsepower": 250,
       "quantity":0
-      
     },
+
     {
+      "uuid": 26,
       "make": "Ford",
       "model": "Explorer",
       "color": "black",
@@ -257,7 +284,9 @@
       "horsepower": null,
       "quantity":1
     },
+
     {
+      "uuid": 27,
       "make": "Ford",
       "model": "Maverick",
       "color": "blue",
@@ -265,9 +294,10 @@
       "mpg": 33.4,
       "horsepower": 191,
       "quantity":0
-      
     },
+
     {
+      "uuid": 28,
       "make": "Ford",
       "model": "Mustang",
       "color": "blue",
@@ -275,9 +305,10 @@
       "mpg": 18.8,
       "horsepower": 450,
       "quantity":1
-      
     },
+
     {
+      "uuid": 29,
       "make": "Ford",
       "model": "F-150",
       "color": "silver",
@@ -288,6 +319,7 @@
     },
 
     {
+      "uuid": 30,
       "make": "Ford",
       "model": "F-250",
       "color": "gray",
@@ -295,9 +327,10 @@
       "mpg": null,
       "horsepower": 385,
       "quantity":0
-      
     },
+
     {
+      "uuid": 31,
       "make": "Kia",
       "model": "Sorrento",
       "color": "blue",
@@ -305,9 +338,10 @@
       "mpg": 27.5,
       "horsepower": null,
       "quantity":1
-      
     },
+
     {
+      "uuid": 32,
       "make": "Kia",
       "model": "Soul",
       "color": "red",
@@ -318,6 +352,7 @@
     },
 
     {
+      "uuid": 33,
       "make": "Kia",
       "model": "Sportage",
       "color": "white",
@@ -326,8 +361,9 @@
       "horsepower": 181,
       "quantity": 4
     },
-
+    
     {
+      "uuid": 34,
       "make": "Lamborghini",
       "model": "Aventador",
       "color": "green",
@@ -338,6 +374,7 @@
     },
 
     {
+      "uuid": 35,
       "make": "Lamborghini",
       "model": "Huracan",
       "color": "red",
@@ -348,6 +385,7 @@
     },
 
     {
+      "uuid": 36,
       "make": "Lamborghini",
       "model": "Urus",
       "color": "purple",
@@ -358,6 +396,7 @@
     },
 
     {
+      "uuid": 37,
       "make": "Mazda",
       "model": "CX-5",
       "color": "red",
@@ -368,6 +407,7 @@
     },
 
     {
+      "uuid": 38,
       "make": "McLaren",
       "model": "GT",
       "color": "blue",
@@ -378,6 +418,7 @@
     },
 
     {
+      "uuid": 39,
       "make": "Nissan",
       "model": "Altima",
       "color": "black",
@@ -387,6 +428,7 @@
       "quantity": 0
     },
     {
+      "uuid": 40,
       "make": "Nissan",
       "model": "Frontier",
       "color": "gray",
@@ -397,6 +439,7 @@
     },
 
     {
+      "uuid": 41,
       "make": "Nissan",
       "model": "GT-R",
       "color": "red",
@@ -407,6 +450,7 @@
     },
 
     {
+      "uuid": 42,
       "make": "Porsche",
       "model": "911",
       "color": "silver",
@@ -417,6 +461,7 @@
     },
 
     {
+      "uuid": 43,
       "make": "Porsche",
       "model": "Boxster",
       "color": "silver",
@@ -427,6 +472,7 @@
     },
 
     {
+      "uuid": 44,
       "make": "Porsche",
       "model": "Cayenne",
       "color": "red",
@@ -437,6 +483,7 @@
     },
 
     {
+      "uuid": 45,
       "make": "Porsche",
       "model": "Cayman",
       "color": "blue",
@@ -447,6 +494,7 @@
     },
 
     {
+      "uuid": 46,
       "make": "Porsche",
       "model": "Spyder",
       "color": "yellow",
@@ -457,6 +505,7 @@
     },
 
     {
+      "uuid": 47,
       "make": "Rolls-Royce",
       "model": "Phantom",
       "color": "blue",
@@ -467,6 +516,7 @@
     },
 
     {
+      "uuid": 48,
       "make": "Subaru",
       "model": "Outback",
       "color": "blue",
@@ -477,6 +527,7 @@
     },
 
     {
+      "uuid": 49,
       "make": "Subaru",
       "model": "Ascent",
       "color": "white",
@@ -487,6 +538,7 @@
     },
 
     {
+      "uuid": 50,
       "make": "Subaru",
       "model": "Forester",
       "color": "green",
@@ -497,6 +549,7 @@
     },
 
     {
+      "uuid": 51,
       "make": "Tesla",
       "model": "Model S",
       "color": "white",
@@ -507,6 +560,7 @@
     },
 
     {
+      "uuid": 52,
       "make": "Tesla",
       "model": "Model 3",
       "color": "blue",
@@ -517,6 +571,7 @@
     },
 
     {
+      "uuid": 53,
       "make": "Tesla",
       "model": "Model X",
       "color": "gray",
@@ -527,6 +582,7 @@
     },
 
     {
+      "uuid": 54,
       "make": "Tesla",
       "model": "Model Y",
       "color": "silver",
@@ -537,6 +593,7 @@
     },
 
     {
+      "uuid": 55,
       "make": "Toyota",
       "model": "Camry",
       "color": "white",
@@ -547,6 +604,7 @@
     },
 
     {
+      "uuid": 56,
       "make": "Toyota",
       "model": "Corolla",
       "color": "silver",
@@ -557,6 +615,7 @@
     },
 
     {
+      "uuid": 57,
       "make": "Toyota",
       "model": "RAV4",
       "color": "black",
@@ -567,6 +626,7 @@
     },
 
     {
+      "uuid": 58,
       "make": "Toyota",
       "model": "Prius",
       "color": "blue",
@@ -577,6 +637,7 @@
     },
 
     {
+      "uuid": 59,
       "make": "Toyota",
       "model": "Supra",
       "color": "red",
@@ -587,6 +648,7 @@
     },
 
     {
+      "uuid": 60,
       "make": "Volkswagen",
       "model": "Golf",
       "color": "blue",
@@ -597,6 +659,7 @@
     },
 
     {
+      "uuid": 61,
       "make": "Volkswagen",
       "model": "Jetta",
       "color": "white",
@@ -607,6 +670,7 @@
     },
 
     {
+      "uuid": 62,
       "make": "Volkswagen",
       "model": "Tiguan",
       "color": "green",

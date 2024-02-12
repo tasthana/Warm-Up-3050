@@ -1,8 +1,10 @@
-def menu():
+def display_menu():
     print("Welcome to the Car Inventory Database.")
     print("Options for queries: \n"
           "Get _ where _ is _ \n"
           "\tExample: Get model where make is Jeep\n"
+          "\t*In order to do several conditions, use 'and'\n"
+          "\tExample: Get model where make is Jeep and msrp > 30000\n"
           "Add [color] [make] [model] [msrp] [mpg] [horsepower]\n"
           "\tExample: Add white Jeep Cherokee 40000 32.1 87\n"
           "\t*If you want to leave a field blank, say 'NULL'.\n")
@@ -16,16 +18,24 @@ def get_input():
 def process_input(user_input):
     if user_input.lower().startswith("get"):
         data = user_input.split(" ")
+        num_conditions = data.count("and") + 1  # if the number of ands is zero, there is one condition
         # check to see if query is good, if not return False
-        if len(data) != 6 or data[2].lower() != "where" or data[4].lower() != "is":
+        if data[2].lower() != "where" or data[4].lower() != "is":
             print(data)
             print("Invalid query. Format must be 'Get _ where _ is _'")
             return False
         # otherwise query is good
         target = data[1]
-        field = data[3]
-        condition = data[5]
-        print(f"Getting {target} where {field} is {condition}")
+        fields = []
+        conditions = []
+        for i in range(num_conditions):
+            fields.append(data[3 + (i * 4)])
+            if fields[-1].lower() == "msrp" or fields[-1].lower() == "mpg" or fields[-1].lower() == "horsepower":
+                conditions.append(data[4 + (i * 4)] + data[5 + (i * 4)])
+                pass
+            else:
+                conditions.append(data[5 + (i * 4)])
+        print(f"Getting {target} where {fields} is/are {conditions}")
         return True
     elif user_input.lower().startswith("add"):
         data = user_input.split(" ")
@@ -65,7 +75,7 @@ def process_input(user_input):
 
 
 if __name__ == "__main__":
-    menu()
+    display_menu()
     while True:
         user_input = get_input()
         if process_input(user_input):

@@ -48,8 +48,8 @@ if __name__ == "__main__":
         if car_list != None:
             print("Data loaded from file successfully")
             print("Connecting to firebase...")
-            # client = fb.verify_connection('warm-up-project-3050.json')
-            # dealership_ref = fb.retrieve_reference("3050-Dealership", client)
+            client = fb.verify_connection('warm-up-project-3050.json')
+            dealership_ref = fb.retrieve_reference("3050-Dealership", client)
             for car in car_list:
                 print(car.to_dict())
                 # dealership_ref.document(car.uuid).set(

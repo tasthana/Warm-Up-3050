@@ -79,4 +79,6 @@ if __name__ == "__main__":
     while True:
         user_input = get_input()
         if process_input(user_input):
-            break
+            repeat = input("Would you like to make another query? [y/n] ")
+            if repeat.lower() == 'n':
+                break

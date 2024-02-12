@@ -6,6 +6,7 @@ import firebase_connection as fb
 from car import Car
 
 
+
 # (1.7) Write an admin program to load the data from the specified JSON file
 def load_data_from_json(json_file):
     try:
@@ -36,6 +37,7 @@ def load_data_from_json(json_file):
     except json.JSONDecodeError:
         print(f"Error: Invalid JSON format in file '{json_file}'.")
         return None
+
 
 if __name__ == "__main__":
     if len(sys.argv) != 2:

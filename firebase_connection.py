@@ -30,6 +30,6 @@ def print_collection(ref):
         print(f"{doc.id} => {doc.to_dict()}")
 
 
-client = verify_connection('warm-up-project-3050.json')
-ref = retrieve_reference("3050-Dealership", client)
-print_collection(ref)
+# client = verify_connection('warm-up-project-3050.json')
+# ref = retrieve_reference("3050-Dealership", client)
+# print_collection(ref)

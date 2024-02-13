@@ -27,7 +27,7 @@ def retrieve_reference(client, collection_name):
 
 # set an element in the database
 def set_collection_element(ref, element):
-    ref.document(element.uuid).set(
+    ref.document(str(element.uuid)).set(
         element.to_dict()
     )
 

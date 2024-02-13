@@ -6,6 +6,7 @@ from firebase_admin import db
 import firebase_admin
 from firebase_admin import credentials
 from firebase_admin import firestore
+from car import Car
 
 
 
@@ -23,11 +24,18 @@ def retrieve_reference(collection_name, client):
     ref = client.collection(collection_name)
     return ref
 
+# set an element in the database
+def set_collection_element(element, ref):
+    ref.document(element.uuid).set(
+        element.to_dict()
+    )
+
 #printing it all out
 def print_collection(ref):
     docs = ref.stream()
     for doc in docs:
         print(f"{doc.id} => {doc.to_dict()}")
+
 
 
 # client = verify_connection('warm-up-project-3050.json')

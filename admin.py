@@ -6,7 +6,6 @@ import firebase_connection as fb
 from car import Car
 
 
-
 # (1.7) Write an admin program to load the data from the specified JSON file
 def load_data_from_json(json_file):
     try:
@@ -15,22 +14,10 @@ def load_data_from_json(json_file):
             car_list = []
             if data:
                 for car_dict in data:
-                    if 'mpg' in car_dict and 'horsepower' in car_dict:
-                        car_list.append(Car(car_dict.get('uuid'), car_dict.get('make'), car_dict.get('model'), 
-                                            car_dict.get('color'), car_dict.get('msrp'), car_dict.get('quantity'),
-                                            mpg=car_dict.get('mpg'), horsepower=car_dict.get('horsepower')))
-                    elif 'mpg' in car_dict:
-                        car_list.append(Car(car_dict.get('uuid'), car_dict.get('make'), car_dict.get('model'), 
-                                            car_dict.get('color'), car_dict.get('msrp'), car_dict.get('quantity'),
-                                            mpg=car_dict.get('mpg')))
-                    elif 'horsepower' in car_dict:
-                        car_list.append(Car(car_dict.get('uuid'), car_dict.get('make'), car_dict.get('model'), 
-                                            car_dict.get('color'), car_dict.get('msrp'), car_dict.get('quantity'),
-                                            horsepower=car_dict.get('horsepower')))
-                    else:
-                        car_list.append(Car(car_dict.get('uuid'), car_dict.get('make'), car_dict.get('model'), 
-                                            car_dict.get('color'), car_dict.get('msrp'), car_dict.get('quantity')))
-                return data
+                    car_list.append(Car.from_dict(car_dict))
+                return car_list
+            else:
+                return None
     except FileNotFoundError:
         print(f"Error: File '{json_file}' not found.")
         return None
@@ -50,8 +37,13 @@ if __name__ == "__main__":
             print("Connecting to firebase...")
             client = fb.verify_connection('warm-up-project-3050.json')
             dealership_ref = fb.retrieve_reference("3050-Dealership", client)
-            for car in car_list:
-                print(car.to_dict())
-                # dealership_ref.document(car.uuid).set(
-                #     car.to_dict()
-                # )
+            print("Connected to firebase successfully")
+            print("Uploading data to firebase...")
+            for element in car_list:
+                dealership_ref.document(str(element.uuid)).set(
+                    element.to_dict()
+                )
+            print(f"Successfully uploaded {len(car_list)} entries to firebase")
+            # fb.print_collection(dealership_ref)
+        else:
+            print(f"Unable to load data from '{json_file}'.")

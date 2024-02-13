@@ -2,7 +2,7 @@
 import sys
 import json
 import car
-import firebase_connection as fb
+import firebase_connection as fbc
 from car import Car
 
 
@@ -35,14 +35,12 @@ if __name__ == "__main__":
         if car_list != None:
             print("Data loaded from file successfully")
             print("Connecting to firebase...")
-            client = fb.verify_connection('warm-up-project-3050.json')
-            dealership_ref = fb.retrieve_reference("3050-Dealership", client)
+            client = fbc.verify_connection('warm-up-project-3050.json')
+            dealership_ref = fbc.retrieve_reference(client, "3050-Dealership")
             print("Connected to firebase successfully")
             print("Uploading data to firebase...")
             for element in car_list:
-                dealership_ref.document(str(element.uuid)).set(
-                    element.to_dict()
-                )
+                fbc.set_collection_element(dealership_ref, element)
             print(f"Successfully uploaded {len(car_list)} entries to firebase")
             # fb.print_collection(dealership_ref)
         else:

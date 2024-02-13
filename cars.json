@@ -554,7 +554,7 @@
       "model": "Model S",
       "color": "white",
       "msrp": 61000,
-      "mpg": 26,
+      "mpg": null,
       "horsepower": null,
       "quantity": 1
     },
@@ -565,7 +565,7 @@
       "model": "Model 3",
       "color": "blue",
       "msrp": 56000,
-      "mpg": 25.9,
+      "mpg": null,
       "horsepower": 346,
       "quantity": 1
     },
@@ -576,7 +576,7 @@
       "model": "Model X",
       "color": "gray",
       "msrp": 42000,
-      "mpg": 22.4,
+      "mpg": null,
       "horsepower": 670,
       "quantity": 0
     },
@@ -587,7 +587,7 @@
       "model": "Model Y",
       "color": "silver",
       "msrp": 38000,
-      "mpg": 23.7,
+      "mpg": null,
       "horsepower": null,
       "quantity": 2
     },

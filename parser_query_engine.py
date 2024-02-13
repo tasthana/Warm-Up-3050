@@ -97,7 +97,7 @@ def execute_query(ref, retrieval_list, condition_list):
                 results.append(element.to_dict())
         except:
             # Something went wrong while processing the query, let the user know
-            print("Query failed to process1")
+            print("Query failed to process")
             return None
         
     # This performs the rest of the queries (if there are any others)

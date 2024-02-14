@@ -1,5 +1,5 @@
 import firebase_connection as fbc
-
+import shlex
 
 
 def display_menu():
@@ -45,7 +45,7 @@ def process_input(user_input):
     """
 
     if user_input.lower().startswith("get"):
-        data = user_input.split(" ")
+        data = shlex.split(user_input)
         num_conditions = data.count("and") + 1  # if the number of ands is zero, there is one condition
         # check to see if query is good, if not return False
         if data[2].lower() != "where" or data[4].lower() != "is":
@@ -100,6 +100,7 @@ def process_input(user_input):
     else:
         print("Invalid input")
         return False
+
 
 # executes query
 def execute_query(ref, retrieval_list, condition_list):
@@ -184,4 +185,3 @@ if __name__ == "__main__":
             repeat = input("Would you like to make another query? [y/n] ")
             if repeat.lower() == 'n':
                 break
-    

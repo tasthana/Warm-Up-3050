@@ -1,6 +1,6 @@
 import firebase_connection as fbc
 import shlex
-
+from car import Car
 
 def display_menu():
     """
@@ -45,7 +45,7 @@ def process_input(user_input):
     """
 
     if user_input.lower().startswith("get"):
-        data = shlex.split(user_input)
+        data = shlex.split(user_input.rstrip())
         num_conditions = data.count("and") + 1  # if the number of ands is zero, there is one condition
         # check to see if query is good, if not return False
         operators = ['==', '<', '>', '<=', '>=']
@@ -77,9 +77,10 @@ def process_input(user_input):
 
         return [targets, query_list]
     elif user_input.lower().startswith("add"):
-        data = user_input.split(" ")
+        data = shlex.split(user_input.rstrip())
         # check to see if query is valid, if not return False
         if len(data) != 7:
+            print(data)
             print("You must enter a value for every field.")
             return []
         # otherwise query format is good
@@ -88,10 +89,7 @@ def process_input(user_input):
         model = data[3].capitalize()
         # make sure msrp, mpg, horsepower are numbers, if not, return false
         try:
-            if data[4].lower() != "null":
-                msrp = int(data[4])
-            else:
-                msrp = None
+            msrp = int(data[4])
             if data[5].lower() != "null":
                 mpg = float(data[5])
             else:
@@ -101,19 +99,9 @@ def process_input(user_input):
             else:
                 horsepower = None
         except ValueError:
-            print("MSRP, miles per gallon, and horsepower must all be numbers or NULL.")
+            print("MSRP, miles per gallon, and horsepower must all be numbers (mpg and horsepower can also be NULL).")
             return []
         # otherwise query is valid
-        print(f"Adding car:\n"
-              f"Color: {color}\n"
-              f"Make: {make}\n"
-              f"Model: {model}")
-        if msrp:
-            print(f"MSRP: ${msrp:,d}")
-        if mpg:
-            print(f"MPG: {mpg:.2f}")
-        if horsepower:
-            print(f"Horsepower: {horsepower}")
         return [make, model, color, msrp, mpg, horsepower]
     # if they enter nothing, exit the program
     elif user_input == "":
@@ -200,7 +188,7 @@ def display_query_output(query_output):
 
     :param query_output: A list of dictionaries to display
     """
-    print(f"Query returned {len(query_output)} results:")
+    print(f"Query returned {len(query_output)} result(s):")
     keywords = ["Make", "Model", "Color", "Msrp", "Quantity", "Mpg", "Horsepower"]
     for car_dict in query_output:
         for word in keywords:
@@ -208,9 +196,28 @@ def display_query_output(query_output):
                 print(f"\t{word}: {car_dict.get(word.lower())}")
         print()
 
+def add_to_database(ref, parsed_query):
+    """
+    This function adds a new car to the database
+
+    :param ref: the reference to the datastore
+    :param parsed_query: the parsed query of fields for the new car
+    """
+    result = execute_query(ref, ["*"], [['make', '==', parsed_query[0]], ['model', '==', parsed_query[1]], 
+                                                         ['color', '==', parsed_query[2]], ['msrp', '==', parsed_query[3]], 
+                                                         ['mpg', '==', parsed_query[4]], ['horsepower', '==', parsed_query[5]]])
+    if len(result) > 0:
+        print("This car is already in the database")
+        return None
+    else:
+        new_car = Car(parsed_query[0], parsed_query[1], parsed_query[2], parsed_query[3], 1, parsed_query[4], parsed_query[5])
+        fbc.set_collection_element(dealership_ref, new_car)
+        print("Car has been added to database")
+        return new_car
+
 
 if __name__ == "__main__":
-    print("Connecting to firebase...")
+    print("\nConnecting to firebase...")
     client = fbc.verify_connection('warm-up-project-3050.json')
     dealership_ref = fbc.retrieve_reference(client, "3050-Dealership")
     print("Connected to firebase successfully!\n")
@@ -228,7 +235,10 @@ if __name__ == "__main__":
         if parsed_query != []:
             if len(parsed_query) == 2:
                 results = execute_query(dealership_ref, parsed_query[0], parsed_query[1])
+                print()
                 display_query_output(results)
             elif len(parsed_query) == 6:
                 # add execute_add here, parsed_query will be a list of 6 elements
-                pass
+                new_car = add_to_database(dealership_ref, parsed_query)
+                if new_car:
+                    display_query_output([new_car.to_dict()])

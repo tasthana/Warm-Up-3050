@@ -63,38 +63,26 @@ def print_collection(ref):
         print(f"{doc.id} => {doc.to_dict()}")
 
 # perform a single query the database
-def query_database(ref, retrievals, field, operator, value):
+def query_database(ref, retrievals, field=None, operator=None, value=None):
     """
     This function executes a query on the database and returns the stream of the 
-    query by specifying the variables to retrieve and the field, operator, and 
+    query by specifying the variables to retrieve and optionally the field, operator, and 
     value necessary for a conditional retrieval.
 
     :param ref: the reference to the collection
-    :param retrievals: the variables to retreive
-    :param field: the field to compare
-    :param operator: the comparison operator
-    :param value: the value to compare the field to
+    :param retrievals: the variables to retrieve
+    :param field: (optional) the field to compare
+    :param operator: (optional) the comparison operator
+    :param value: (optional) the value to compare the field to
     :return: the stream of the query
     """
-    query = ref.where(filter=FieldFilter(field, operator, value=value))
+    if field is not None and operator is not None and value is not None:
+        query = ref.where(field, operator, value=value)
+    else:
+        query = ref
     query = query.select(retrievals)
     results = query.stream()
     return results
-
-# perform a single query the database
-def query_database(ref, retrievals):
-    """
-    This function executes a query on the database and returns the stream of the 
-    query by specifying the variables to retrieve without making any comparisons.
-
-    :param ref: the reference to the collection
-    :param retrievals: the variables to retreive
-    :return: the stream of the query
-    """
-    query = ref.select(retrievals)
-    results = query.stream()
-    return results
-
 
 # client = verify_connection('warm-up-project-3050.json')
 # ref = retrieve_reference(client, "3050-Dealership")

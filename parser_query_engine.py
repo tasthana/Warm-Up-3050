@@ -174,6 +174,20 @@ def execute_query(ref, retrieval_list, condition_list):
 
     return results
 
+def display_query_output(query_output):
+    """
+    This function displays the output from a query in a formatted way.
+
+    :param query_output: A list of dictionaries to display
+    """
+    print(f"Query returned {len(query_output)} results:")
+    keywords = ["Make", "Model", "Color", "Msrp", "Quantity", "Mpg", "Horsepower"]
+    for car_dict in query_output:
+        for word in keywords:
+            if word.lower() in car_dict:
+                print(f"\t{word}: {car_dict.get(word.lower())}")
+        print()
+
 
 if __name__ == "__main__":
     print("Connecting to firebase...")

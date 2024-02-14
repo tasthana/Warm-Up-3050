@@ -19,7 +19,8 @@ def display_menu():
           "======================================================================\n"
           "Add [color] [make] [model] [msrp] [mpg] [horsepower]\n"
           "\tExample: Add white Jeep Cherokee 40000 32.1 87\n"
-          " - If you want to leave a field blank, say 'NULL'.\n")
+          " - If you want to leave a field blank, say 'NULL'.\n"
+          "Type 'help' to see the menu again.")
 
 
 def get_input():
@@ -101,11 +102,13 @@ def process_input(user_input):
     # if they enter nothing, exit the program
     elif user_input == "":
         print("Goodbye!")
-        return True
+        return [1]
     # if it doesn't start with add or get, the query is invalid
+    elif user_input.lower() == "help":
+        display_menu()
     else:
         print("Invalid input")
-        return False
+        return []
 
 
 # executes query

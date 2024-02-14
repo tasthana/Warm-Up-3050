@@ -122,6 +122,7 @@ def process_input(user_input):
     # if it doesn't start with add or get, the query is invalid
     elif user_input.lower() == "help":
         display_menu()
+        return []
     else:
         print("Invalid input")
         return []

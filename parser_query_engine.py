@@ -3,6 +3,10 @@ import firebase_connection as fbc
 
 
 def display_menu():
+    """
+    This function displays a help menu to the user
+    """
+
     print("Welcome to the Car Inventory Database.")
     print("Options for queries: \n"
           "Get _ where _ is _ \n"
@@ -15,11 +19,27 @@ def display_menu():
 
 
 def get_input():
+    """
+    This function is used to get input for a query from the user.
+
+    :return: a string representation of the user's input
+    """
+
     user_input = input("Enter your query or press return to exit: ")
     return user_input
 
 
 def process_input(user_input):
+    """
+    This function takes in a user's query as a string and parses 
+    it to get the variables that the user wants to retrieve and 
+    the conditions for retrieval.
+
+    :param user_input: the user's query as a string
+    :return: a list of variables to retrieve
+    :return: a list of conditions to be used in queries
+    """
+
     if user_input.lower().startswith("get"):
         data = user_input.split(" ")
         num_conditions = data.count("and") + 1  # if the number of ands is zero, there is one condition
@@ -79,6 +99,17 @@ def process_input(user_input):
 
 # executes query
 def execute_query(ref, retrieval_list, condition_list):
+    """
+    This function takes in a database record, the list of variables to retrieve, 
+    and the list of conditions for returned items, and it executes queries to 
+    retrieve data from the firebase datstore referenced.
+
+    :param ref: the reference to the datastore
+    :param retrieval_list: the list of variables to retrieve
+    :param condition_list: the list of conditions to be used in queries
+    :return: a list of dictionaries representing the data retreived from firebase
+    """
+
     # Create an empty list to store our results
     results = []
 
@@ -92,6 +123,17 @@ def execute_query(ref, retrieval_list, condition_list):
         try:
             # query the database
             output = fbc.query_database(ref, retrieval_list, condition_list[0][0], condition_list[0][1], condition_list[0][2])
+            # add our output to the results list
+            for element in output:
+                results.append(element.to_dict())
+        except:
+            # Something went wrong while processing the query, let the user know
+            print("Query failed to process")
+            return None
+    else:
+        try:
+            # query the database
+            output = fbc.query_database(ref, retrieval_list)
             # add our output to the results list
             for element in output:
                 results.append(element.to_dict())
@@ -128,6 +170,8 @@ if __name__ == "__main__":
     print("Connected to firebase successfully")
     # test_result = execute_query(dealership_ref, ['make', 'model', 'msrp', 'mpg'], [['msrp', '>=', 30000], ['mpg', '<', 26]])
     # print(test_result)
+    # test_result2 = execute_query(dealership_ref, ['make'], [])
+    # print(test_result2)
     display_menu()
     while True:
         user_input = get_input()

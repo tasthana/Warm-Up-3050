@@ -6,21 +6,24 @@ def display_menu():
     """
     This function displays a help menu to the user
     """
-    print("======================================\n"
+    print("=============================================================================================\n"
           "Welcome to the Car Inventory Database.\n"
-          "======================================\n"
+          "=============================================================================================\n"
           "Options for queries: \n"
-          "Get _ where _ is _ \n"
-          "\tExample: Get model where make is Jeep\n"
-          " - In order to do several conditions, use 'and'\n"
-          "\tExample: Get model where make is Jeep and msrp > 30000\n"
-          " - In order to target several categories, use a comma\n"
-          "\tExample: Get model,color where make is Jeep and msrp > 30000\n"
-          "======================================================================\n"
-          "Add [color] [make] [model] [msrp] [mpg] [horsepower]\n"
-          "\tExample: Add white Jeep Cherokee 40000 32.1 87\n"
-          " - If you want to leave a field blank, say 'NULL'.\n"
-          "Type 'help' to see the menu again.")
+          ">  Get _ where _ (and _ ...) \n"
+          "     - Example: Get model where make is Jeep\n"
+          "   In order to do several conditions, use 'and'\n"
+          "     - Example: Get model where make == Jeep and msrp > 30000\n"
+          "   In order to target several categories, use a comma (but no spaces)\n"
+          "     - Example: Get model,color where make == Jeep and msrp > 30000\n"
+          "   The valid fields are 'make', 'model', 'color', 'quantity', 'msrp', 'mpg', 'horsepower'\n"
+          "   The valid operators are '==', '!=', '>=', '<=', '>', '<'\n"
+          "=============================================================================================\n"
+          ">  Add [color] [make] [model] [msrp] [mpg] [horsepower]\n"
+          "     - Example: Add white Jeep Cherokee 40000 32.1 87\n"
+          "   If you want to leave a field blank, say 'NULL'.\n"
+          "Type 'help' to see the menu again.\n"
+          "Enter 'exit' to quit.\n")
 
 
 def get_input():
@@ -30,7 +33,7 @@ def get_input():
     :return: a string representation of the user's input
     """
 
-    user_input = input("Enter your query or press return to exit: ")
+    user_input = input(">> ")
     return user_input
 
 
@@ -48,7 +51,7 @@ def process_input(user_input):
         data = shlex.split(user_input.rstrip())
         num_conditions = data.count("and") + 1  # if the number of ands is zero, there is one condition
         # check to see if query is good, if not return False
-        operators = ['==', '<', '>', '<=', '>=']
+        operators = ['==', '!=', '<', '>', '<=', '>=']
         if data[2].lower() != "where" or (data[4].lower() != "is" and data[4] not in operators):
             print(data)
             print("Invalid format for a Get query. Type 'help' to see the available operations.")
@@ -65,12 +68,14 @@ def process_input(user_input):
                 try:
                     conditions.append(float(data[5 + (i * 4)]))
                 except ValueError:
-                    print(f"{data[3]} must be a number")
+                    print(f"{data[3]} must be a number. Type 'help' to see the available operations.")
                     return []
             else:
-                operands.append("==")
+                if data[4 + (i * 4)] == ">" or data[4 + (i * 4)] == "<" or data[4 + (i * 4)] == ">=" or data[4 + (i * 4)] == "<=":
+                    print(f"Cannot use numerical comparisons on {data[3]}. Type 'help' to see the available operations.")
+                    return []
+                operands.append(data[4 + (i * 4)])
                 conditions.append(data[5 + (i * 4)])
-        print(f"Getting {targets} where {fields} is {conditions}")
         query_list = []
         for i in range(len(conditions)):
             query_list.append([fields[i], operands[i], conditions[i]])
@@ -81,7 +86,7 @@ def process_input(user_input):
         # check to see if query is valid, if not return False
         if len(data) != 7:
             print(data)
-            print("You must enter a value for every field.")
+            print("You must enter a value for every field. Type 'help' to see the available operations.")
             return []
         # otherwise query format is good
         color = data[1]
@@ -99,12 +104,12 @@ def process_input(user_input):
             else:
                 horsepower = None
         except ValueError:
-            print("MSRP, miles per gallon, and horsepower must all be numbers (mpg and horsepower can also be NULL).")
+            print("MSRP, miles per gallon, and horsepower must all be numbers (mpg and horsepower can also be NULL). Type 'help' to see the available operations.")
             return []
         # otherwise query is valid
         return [make, model, color, msrp, mpg, horsepower]
-    # if they enter nothing, exit the program
-    elif user_input == "":
+    # if they enter exit, exit the program
+    elif user_input == "exit":
         print("Goodbye!")
         return [1]
     # if it doesn't start with add or get, the query is invalid
@@ -112,7 +117,7 @@ def process_input(user_input):
         display_menu()
         return []
     else:
-        print("Invalid input")
+        print("Invalid input. Type 'help' to see the available operations.")
         return []
 
 
@@ -189,12 +194,13 @@ def display_query_output(query_output):
     :param query_output: A list of dictionaries to display
     """
     print(f"Query returned {len(query_output)} result(s):")
+    print("\t---------------------")
     keywords = ["Make", "Model", "Color", "Msrp", "Quantity", "Mpg", "Horsepower"]
     for car_dict in query_output:
         for word in keywords:
             if word.lower() in car_dict:
                 print(f"\t{word}: {car_dict.get(word.lower())}")
-        print()
+        print("\t---------------------")
 
 def add_to_database(ref, parsed_query):
     """
@@ -226,13 +232,12 @@ if __name__ == "__main__":
     # test_result2 = execute_query(dealership_ref, ['make'], [])
     # print(test_result2)
     display_menu()
-    print()
     while True:
         user_input = get_input()
-        if user_input == '':
-            break
         parsed_query = process_input(user_input)
         if parsed_query != []:
+            if parsed_query == [1]:
+                break
             if len(parsed_query) == 2:
                 results = execute_query(dealership_ref, parsed_query[0], parsed_query[1])
                 print()

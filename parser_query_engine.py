@@ -40,8 +40,7 @@ def process_input(user_input):
     the conditions for retrieval.
 
     :param user_input: the user's query as a string
-    :return: a list of variables to retrieve
-    :return: a list of conditions to be used in queries
+    :return: true if valid query, false otherwise
     """
 
     if user_input.lower().startswith("get"):

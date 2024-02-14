@@ -55,15 +55,21 @@ def process_input(user_input):
         # otherwise query is good
         targets = data[1].split(',')  # split so that multiple targets can be fetched
         fields = []
+        operands = []
         conditions = []
         for i in range(num_conditions):
             fields.append(data[3 + (i * 4)])
             if fields[-1].lower() == "msrp" or fields[-1].lower() == "mpg" or fields[-1].lower() == "horsepower":
-                conditions.append(data[4 + (i * 4)] + data[5 + (i * 4)])
-                pass
-            else:
+                operands.append(data[4 + (i * 4)])
                 conditions.append(data[5 + (i * 4)])
-        print(f"Getting {targets} where {fields} is/are {conditions}")
+            else:
+                operands.append("==")
+                conditions.append(data[5 + (i * 4)])
+        print(f"Getting {targets} where {fields} is {conditions}")
+        query_list = []
+        for i in range(len(conditions)):
+            query_list.append([fields[i], operands[i], conditions[i]])
+
         return True
     elif user_input.lower().startswith("add"):
         data = user_input.split(" ")

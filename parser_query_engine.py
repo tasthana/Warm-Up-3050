@@ -48,7 +48,8 @@ def process_input(user_input):
         data = shlex.split(user_input)
         num_conditions = data.count("and") + 1  # if the number of ands is zero, there is one condition
         # check to see if query is good, if not return False
-        if data[2].lower() != "where" or data[4].lower() != "is":
+        operators = ['==', '<', '>', '<=', '>=']
+        if data[2].lower() != "where" or (data[4].lower() != "is" and data[4] not in operators):
             print(data)
             print("Invalid query. Format must be 'Get _ where _ is _'")
             return False

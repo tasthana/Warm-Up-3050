@@ -89,7 +89,7 @@ def query_database(ref, retrievals, field=None, operator=None, value=None):
     :return: the stream of the query
     """
     if field is not None and operator is not None and value is not None:
-        query = ref.where(field, operator, value=value)
+        query = ref.where(filter=FieldFilter(field, operator, value))
     else:
         query = ref
     query = query.select(retrievals)

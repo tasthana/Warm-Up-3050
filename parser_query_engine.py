@@ -51,7 +51,7 @@ def process_input(user_input):
         if data[2].lower() != "where" or (data[4].lower() != "is" and data[4] not in operators):
             print(data)
             print("Invalid query. Format must be 'Get _ where _ is _'")
-            return False
+            return []
         # otherwise query is good
         targets = data[1].split(',')  # split so that multiple targets can be fetched
         fields = []
@@ -70,13 +70,13 @@ def process_input(user_input):
         for i in range(len(conditions)):
             query_list.append([fields[i], operands[i], conditions[i]])
 
-        return True
+        return [targets, query_list]
     elif user_input.lower().startswith("add"):
         data = user_input.split(" ")
         # check to see if query is valid, if not return False
         if len(data) != 7:
             print("You must enter a value for every field.")
-            return False
+            return []
         # otherwise query format is good
         color = data[1]
         make = data[2].capitalize()
@@ -88,7 +88,7 @@ def process_input(user_input):
             horsepower = int(data[6])
         except ValueError:
             print("MSRP, miles per gallon, and horsepower must all be numbers.")
-            return False
+            return []
         # otherwise query is valid
         print(f"Adding car:\n"
               f"Color: {color}\n"
@@ -97,7 +97,7 @@ def process_input(user_input):
               f"MSRP: ${msrp:,d}\n"
               f"MPG: {mpg:.2f}\n"
               f"Horsepower: {horsepower}\n")
-        return True
+        return [make, model, color, msrp, mpg, horsepower]
     # if they enter nothing, exit the program
     elif user_input == "":
         print("Goodbye!")

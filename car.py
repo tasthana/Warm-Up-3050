@@ -1,6 +1,5 @@
 class Car:
-    def __init__(self, uuid, make, model, color, msrp, quantity, mpg=-1, horsepower=-1):
-        self.uuid = uuid
+    def __init__(self, make, model, color, msrp, quantity, mpg=-1, horsepower=-1):
         self.make = make
         self.model = model
         self.color = color
@@ -11,12 +10,11 @@ class Car:
 
     @staticmethod
     def from_dict(source):
-       return Car(source['uuid'], source['make'], source['model'], source['color'], source['msrp'], source['quantity'],
+       return Car(source['make'], source['model'], source['color'], source['msrp'], source['quantity'],
                    source.get('mpg', -1), source.get('horsepower', -1))
 
     def to_dict(self):
       car_dict = {
-            'uuid': self.uuid,
             'make': self.make,
             'model': self.model,
             'color': self.color,

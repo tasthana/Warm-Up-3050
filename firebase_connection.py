@@ -8,6 +8,7 @@ from firebase_admin import credentials
 from firebase_admin import firestore
 from google.cloud.firestore_v1.base_query import FieldFilter
 from car import Car
+import uuid
 
 
 
@@ -46,7 +47,8 @@ def set_collection_element(ref, element):
 
     :param ref: the reference to the collection
     """
-    ref.document(str(element.uuid)).set(
+    new_uuid = uuid.uuid4()
+    ref.document(str(new_uuid)).set(
         element.to_dict()
     )
 

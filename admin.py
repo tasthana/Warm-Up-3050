@@ -1,4 +1,3 @@
-# Program starts in this file, get query input and process it
 import sys
 import json
 import car
@@ -6,8 +5,13 @@ import firebase_connection as fbc
 from car import Car
 
 
-# (1.7) Write an admin program to load the data from the specified JSON file
 def load_data_from_json(json_file):
+    """
+    This funciton loads data from a json file and returns a list of Car objects.
+
+    :param json_file: the name of a JSON file
+    :return: a list of car objects
+    """
     try:
         with open(json_file, 'r') as file:
             data = json.load(file)

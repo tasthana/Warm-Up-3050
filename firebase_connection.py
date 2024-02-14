@@ -50,6 +50,18 @@ def set_collection_element(ref, element):
         element.to_dict()
     )
 
+def clear_database(ref):
+    """
+    This function is used to clear the database.
+
+    :param ref: the reference to the collection
+    """
+    # Get all documents in the specified collection
+    docs = ref.stream()
+    # Delete each document
+    for doc in docs:
+        doc.reference.delete()
+
 # printing it all out
 def print_collection(ref):
     """
@@ -86,5 +98,6 @@ def query_database(ref, retrievals, field=None, operator=None, value=None):
 
 # client = verify_connection('warm-up-project-3050.json')
 # ref = retrieve_reference(client, "3050-Dealership")
-# # print_collection(ref)
+# clear_database(ref)
+# print_collection(ref)
 # query_database(ref, ['make', 'model', 'mpg'], 'mpg', '>=', 25)

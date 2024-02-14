@@ -1,17 +1,21 @@
 import firebase_connection as fbc
 
 
-
 def display_menu():
-    print("Welcome to the Car Inventory Database.")
-    print("Options for queries: \n"
+    print("======================================\n"
+          "Welcome to the Car Inventory Database.\n"
+          "======================================\n"
+          "Options for queries: \n"
           "Get _ where _ is _ \n"
           "\tExample: Get model where make is Jeep\n"
-          "\t*In order to do several conditions, use 'and'\n"
+          " - In order to do several conditions, use 'and'\n"
           "\tExample: Get model where make is Jeep and msrp > 30000\n"
+          " - In order to target several categories, use a comma\n"
+          "\tExample: Get model,color where make is Jeep and msrp > 30000\n"
+          "======================================================================\n"
           "Add [color] [make] [model] [msrp] [mpg] [horsepower]\n"
           "\tExample: Add white Jeep Cherokee 40000 32.1 87\n"
-          "\t*If you want to leave a field blank, say 'NULL'.\n")
+          " - If you want to leave a field blank, say 'NULL'.\n")
 
 
 def get_input():
@@ -29,7 +33,7 @@ def process_input(user_input):
             print("Invalid query. Format must be 'Get _ where _ is _'")
             return False
         # otherwise query is good
-        target = data[1]
+        targets = data[1].split(',')  # split so that multiple targets can be fetched
         fields = []
         conditions = []
         for i in range(num_conditions):
@@ -39,7 +43,7 @@ def process_input(user_input):
                 pass
             else:
                 conditions.append(data[5 + (i * 4)])
-        print(f"Getting {target} where {fields} is/are {conditions}")
+        print(f"Getting {targets} where {fields} is/are {conditions}")
         return True
     elif user_input.lower().startswith("add"):
         data = user_input.split(" ")
@@ -77,6 +81,7 @@ def process_input(user_input):
         print("Invalid input")
         return False
 
+
 # executes query
 def execute_query(ref, retrieval_list, condition_list):
     # Create an empty list to store our results
@@ -91,7 +96,8 @@ def execute_query(ref, retrieval_list, condition_list):
     if len(condition_list) > 0:
         try:
             # query the database
-            output = fbc.query_database(ref, retrieval_list, condition_list[0][0], condition_list[0][1], condition_list[0][2])
+            output = fbc.query_database(ref, retrieval_list, condition_list[0][0], condition_list[0][1],
+                                        condition_list[0][2])
             # add our output to the results list
             for element in output:
                 results.append(element.to_dict())
@@ -99,7 +105,7 @@ def execute_query(ref, retrieval_list, condition_list):
             # Something went wrong while processing the query, let the user know
             print("Query failed to process")
             return None
-        
+
     # This performs the rest of the queries (if there are any others)
     if len(condition_list) > 1:
         for condition in condition_list[1:]:
@@ -112,14 +118,14 @@ def execute_query(ref, retrieval_list, condition_list):
                     output_list.append(element.to_dict())
                 # Perform AND operation
                 results = [x for x in results if x in output_list]
-                        
+
             except:
                 # Something went wrong while processing the query, let the user know
                 print("Query failed to process2")
                 return None
-    
+
     return results
-        
+
 
 if __name__ == "__main__":
     print("Connecting to firebase...")
@@ -135,4 +141,3 @@ if __name__ == "__main__":
             repeat = input("Would you like to make another query? [y/n] ")
             if repeat.lower() == 'n':
                 break
-    

@@ -196,15 +196,20 @@ if __name__ == "__main__":
     print("Connecting to firebase...")
     client = fbc.verify_connection('warm-up-project-3050.json')
     dealership_ref = fbc.retrieve_reference(client, "3050-Dealership")
-    print("Connected to firebase successfully")
-    # test_result = execute_query(dealership_ref, ['make', 'model', 'msrp', 'mpg'], [['msrp', '>=', 30000], ['mpg', '<', 26]])
-    # print(test_result)
+    print("Connected to firebase successfully!\n")
+    # test_result = execute_query(dealership_ref, ['make', 'model', 'msrp', 'mpg'], [['mpg', '>', 26]])
+    # display_query_output(test_result)
     # test_result2 = execute_query(dealership_ref, ['make'], [])
     # print(test_result2)
     display_menu()
+    print()
     while True:
         user_input = get_input()
-        if process_input(user_input):
-            repeat = input("Would you like to make another query? [y/n] ")
-            if repeat.lower() == 'n':
-                break
+        if user_input == '':
+            break
+        parsed_query = process_input(user_input)
+        if parsed_query != []:
+            results = execute_query(dealership_ref, parsed_query[0], parsed_query[1])
+            print("PARSED QUERY[0]: ", parsed_query[0])
+            print("PARSED QUERY[1]: ", parsed_query[1])
+            display_query_output(results)

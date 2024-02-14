@@ -226,7 +226,9 @@ if __name__ == "__main__":
             break
         parsed_query = process_input(user_input)
         if parsed_query != []:
-            results = execute_query(dealership_ref, parsed_query[0], parsed_query[1])
-            print("PARSED QUERY[0]: ", parsed_query[0])
-            print("PARSED QUERY[1]: ", parsed_query[1])
-            display_query_output(results)
+            if len(parsed_query) == 2:
+                results = execute_query(dealership_ref, parsed_query[0], parsed_query[1])
+                display_query_output(results)
+            elif len(parsed_query) == 6:
+                # add execute_add here, parsed_query will be a list of 6 elements
+                pass

@@ -51,7 +51,7 @@ def process_input(user_input):
         operators = ['==', '<', '>', '<=', '>=']
         if data[2].lower() != "where" or (data[4].lower() != "is" and data[4] not in operators):
             print(data)
-            print("Invalid query. Format must be 'Get _ where _ is _'")
+            print("Invalid format for a Get query. Type 'help' to see the available operations.")
             return []
         # otherwise query is good
         targets = data[1].split(',')  # split so that multiple targets can be fetched
@@ -62,7 +62,11 @@ def process_input(user_input):
             fields.append(data[3 + (i * 4)])
             if fields[-1].lower() == "msrp" or fields[-1].lower() == "mpg" or fields[-1].lower() == "horsepower":
                 operands.append(data[4 + (i * 4)])
-                conditions.append(data[5 + (i * 4)])
+                try:
+                    conditions.append(float(data[5 + (i * 4)]))
+                except ValueError:
+                    print(f"{data[3]} must be a number")
+                    return []
             else:
                 operands.append("==")
                 conditions.append(data[5 + (i * 4)])
@@ -84,20 +88,32 @@ def process_input(user_input):
         model = data[3].capitalize()
         # make sure msrp, mpg, horsepower are numbers, if not, return false
         try:
-            msrp = int(data[4])
-            mpg = float(data[5])
-            horsepower = int(data[6])
+            if data[4].lower() != "null":
+                msrp = int(data[4])
+            else:
+                msrp = None
+            if data[5].lower() != "null":
+                mpg = float(data[5])
+            else:
+                mpg = None
+            if data[6].lower() != "null":
+                horsepower = int(data[6])
+            else:
+                horsepower = None
         except ValueError:
-            print("MSRP, miles per gallon, and horsepower must all be numbers.")
+            print("MSRP, miles per gallon, and horsepower must all be numbers or NULL.")
             return []
         # otherwise query is valid
         print(f"Adding car:\n"
               f"Color: {color}\n"
               f"Make: {make}\n"
-              f"Model: {model}\n"
-              f"MSRP: ${msrp:,d}\n"
-              f"MPG: {mpg:.2f}\n"
-              f"Horsepower: {horsepower}\n")
+              f"Model: {model}")
+        if msrp:
+            print(f"MSRP: ${msrp:,d}")
+        if mpg:
+            print(f"MPG: {mpg:.2f}")
+        if horsepower:
+            print(f"Horsepower: {horsepower}")
         return [make, model, color, msrp, mpg, horsepower]
     # if they enter nothing, exit the program
     elif user_input == "":

@@ -10,11 +10,11 @@ indicates the number of a specific car in inventory.
 ## Query Language
 The query language supports retrieving car information based on various conditions. Here are the options for queries:
 - **Get**: Retrieve information based on specified conditions using operators such as '==', '!=', '>=', '<=', '>', '<'. Multiple conditions and fields can be targeted
-  using 'and' and commas.
-    - Example: `Get model where make is Jeep`
-    - Example: `Get model where make == Jeep and msrp > 30000`
+  using 'and' and commas. You can also use '*' if you would like to retreive all information about the cars.
+    - Example: `Get model where make == Jeep`
+    - Example: `Get * where make == Jeep and msrp > 30000`
     - Example: `Get model,color where make == Jeep and msrp > 30000 and quantity > 0`
-- **Add**: Add a new car to the inventory specifying color, make, model, msrp, mpg, and horsepower. Fields can be left blank using 'NULL'.
+- **Add**: Add a new car to the inventory specifying color, make, model, msrp, mpg, and horsepower. Fields can be left blank using 'NULL'. The new car will have a quantity of 1.
     - Example: `Add blue Jeep Cherokee 40000 32.1 87`
     - Example: `Add red Ford Mustang 45000 NULL 350`
     - Example: `Add black Toyota Camry 30000 NULL NULL`

@@ -14,7 +14,8 @@ The query language supports retrieving car information based on various conditio
     - Example: `Get model where make == Jeep`
     - Example: `Get * where make == Jeep and msrp > 30000`
     - Example: `Get model,color where make == Jeep and msrp > 30000 and quantity > 0`
-- **Add**: Add a new car to the inventory specifying color, make, model, msrp, mpg, and horsepower. Fields can be left blank using 'NULL'. The new car will have a quantity of 1.
+- **Add**: Add a new car to the inventory specifying color, make, model, msrp, mpg, and horsepower. Optional fields mpg and horsepower can be left blank using 'NULL'.
+  The new car will have a quantity of 1.
     - Example: `Add blue Jeep Cherokee 40000 32.1 87`
     - Example: `Add red Ford Mustang 45000 NULL 350`
     - Example: `Add black Toyota Camry 30000 NULL NULL`

@@ -1,1 +1,0 @@
-CS 3050 - Software Engineering Warmup project

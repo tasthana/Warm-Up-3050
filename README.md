@@ -10,7 +10,7 @@ indicates the number of a specific car in inventory.
 ## Query Language
 The query language supports retrieving car information based on various conditions. Here are the options for queries:
 - **Get**: Retrieve information based on specified conditions using operators '==', '!=', '>=', '<=', '>', '<'. Multiple conditions and fields can be targeted
-  using 'and' and commas. You can also use '*' if you would like to retreive all information about the cars.
+  using 'and' and commas. You can also use '*' if you would like to retrieve all information about the cars.
     - Example: `Get model where make == Jeep`
     - Example: `Get * where make == Jeep and msrp > 30000`
     - Example: `Get model,color where make == Jeep and msrp > 30000 and quantity > 0`

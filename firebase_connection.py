@@ -98,8 +98,3 @@ def query_database(ref, retrievals, field=None, operator=None, value=None):
     results = query.stream()
     return results
 
-# client = verify_connection('warm-up-project-3050.json')
-# ref = retrieve_reference(client, "3050-Dealership")
-# clear_database(ref)
-# print_collection(ref)
-# query_database(ref, ['make', 'model', 'mpg'], 'mpg', '>=', 25)

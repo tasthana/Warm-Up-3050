@@ -11,17 +11,20 @@ def display_menu():
           "=============================================================================================\n"
           "Options for queries: \n"
           ">  Get _ where _ (and _ ...) \n"
-          "     - Example: Get model where make is Jeep\n"
+          "     - Example: Get model where make == Jeep\n"
           "   In order to do several conditions, use 'and'\n"
           "     - Example: Get model where make == Jeep and msrp > 30000\n"
-          "   In order to target several categories, use a comma (but no spaces)\n"
+          "   In order to target several categories, use a comma (but no spaces) or '*'\n"
           "     - Example: Get model,color where make == Jeep and msrp > 30000\n"
+          "     - Example: Get * where make == Jeep and msrp > 30000\n"
           "   The valid fields are 'make', 'model', 'color', 'quantity', 'msrp', 'mpg', 'horsepower'\n"
           "   The valid operators are '==', '!=', '>=', '<=', '>', '<'\n"
           "=============================================================================================\n"
           ">  Add [color] [make] [model] [msrp] [mpg] [horsepower]\n"
-          "     - Example: Add white Jeep Cherokee 40000 32.1 87\n"
-          "   If you want to leave a field blank, say 'NULL'.\n"
+          "     - Example: Add blue Jeep Cherokee 40000 32.1 87\n"
+          "   If you want to leave optional fields mpg and/or horsepower blank, say 'NULL'.\n"
+          "     - Example: Add red Ford Mustang 45000 NULL 350\n"
+          "     - Example: Add black Toyota Camry 30000 NULL NULL\n"
           "Type 'help' to see the menu again.\n"
           "Enter 'exit' to quit.\n")
 
@@ -50,10 +53,10 @@ def process_input(user_input):
     if user_input.lower().startswith("get"):
         data = shlex.split(user_input.rstrip())
         num_conditions = data.count("and") + 1  # if the number of ands is zero, there is one condition
-        # check to see if query is good, if not return False
         operators = ['==', '!=', '<', '>', '<=', '>=']
-        if data[2].lower() != "where" or (data[4].lower() != "is" and data[4] not in operators):
-            print(data)
+        keywords = ["make", "model", "color", "msrp", "quantity", "mpg", "horsepower"]
+        # check to see if query is good, if not return False
+        if len(data) < 6 or data[2].lower() != "where" or (data[4].lower() != "is" and data[4] not in operators):
             print("Invalid format for a Get query. Type 'help' to see the available operations.")
             return []
         # otherwise query is good
@@ -62,17 +65,21 @@ def process_input(user_input):
         operands = []
         conditions = []
         for i in range(num_conditions):
-            fields.append(data[3 + (i * 4)])
-            if fields[-1].lower() == "msrp" or fields[-1].lower() == "mpg" or fields[-1].lower() == "horsepower":
+            if data[3 + (i * 4)] in keywords:
+                fields.append(data[3 + (i * 4)])
+            else:
+                print(f"{data[3 + (i * 4)]} is not a valid keyword. Type 'help' to see the available operations.")
+                return []
+            if fields[-1].lower() == "msrp" or fields[-1].lower() == "mpg" or fields[-1].lower() == "horsepower" or fields[-1].lower() == "quantity":
                 operands.append(data[4 + (i * 4)])
                 try:
                     conditions.append(float(data[5 + (i * 4)]))
                 except ValueError:
-                    print(f"{data[3]} must be a number. Type 'help' to see the available operations.")
+                    print(f"{data[3 + (i * 4)]} must be a number. Type 'help' to see the available operations.")
                     return []
             else:
                 if data[4 + (i * 4)] == ">" or data[4 + (i * 4)] == "<" or data[4 + (i * 4)] == ">=" or data[4 + (i * 4)] == "<=":
-                    print(f"Cannot use numerical comparisons on {data[3]}. Type 'help' to see the available operations.")
+                    print(f"Cannot use numerical comparisons on {data[3 + (i * 4)]}. Type 'help' to see the available operations.")
                     return []
                 operands.append(data[4 + (i * 4)])
                 conditions.append(data[5 + (i * 4)])
@@ -227,23 +234,26 @@ if __name__ == "__main__":
     client = fbc.verify_connection('warm-up-project-3050.json')
     dealership_ref = fbc.retrieve_reference(client, "3050-Dealership")
     print("Connected to firebase successfully!\n")
-    # test_result = execute_query(dealership_ref, ['make', 'model', 'msrp', 'mpg'], [['mpg', '>', 26]])
-    # display_query_output(test_result)
-    # test_result2 = execute_query(dealership_ref, ['make'], [])
-    # print(test_result2)
+
     display_menu()
+
+    # Loop until the user decides to exit
     while True:
+        # get the input from the user
         user_input = get_input()
+        # parse the query
         parsed_query = process_input(user_input)
+
+        # make sure the user entered a valid query before continuing
         if parsed_query != []:
+            # The user wants to quit
             if parsed_query == [1]:
                 break
-            if len(parsed_query) == 2:
+            if len(parsed_query) == 2:      # The query is a 'get' query
                 results = execute_query(dealership_ref, parsed_query[0], parsed_query[1])
                 print()
                 display_query_output(results)
-            elif len(parsed_query) == 6:
-                # add execute_add here, parsed_query will be a list of 6 elements
+            elif len(parsed_query) == 6:    # The query is an 'add' query
                 new_car = add_to_database(dealership_ref, parsed_query)
                 if new_car:
                     display_query_output([new_car.to_dict()])
